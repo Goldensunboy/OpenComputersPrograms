@@ -92,35 +92,35 @@ function doSnakeTick()
       return
     elseif next[1] == target[1] then direction = pickDirection() end
   elseif direction == "NX" then
-    next = {s[1] + 1, s[2], s[3]}
+    next = {s[1] - 1, s[2], s[3]}
     if holo.get(next[1], next[2], next[3]) == 1 then
       direction = pickDirection()
       doSnakeTick()
       return
     elseif next[1] == target[1] then direction = pickDirection() end
   elseif direction == "PY" then
-    next = {s[1] + 1, s[2], s[3]}
+    next = {s[1], s[2] + 1, s[3]}
     if holo.get(next[1], next[2], next[3]) == 1 then
       direction = pickDirection()
       doSnakeTick()
       return
     elseif next[2] == target[2] then direction = pickDirection() end
   elseif direction == "NY" then
-    next = {s[1] + 1, s[2], s[3]}
+    next = {s[1], s[2] - 1, s[3]}
     if holo.get(next[1], next[2], next[3]) == 1 then
       direction = pickDirection()
       doSnakeTick()
       return
     elseif next[2] == target[2] then direction = pickDirection() end
   elseif direction == "PZ" then
-    next = {s[1] + 1, s[2], s[3]}
+    next = {s[1], s[2], s[3] + 1}
     if holo.get(next[1], next[2], next[3]) == 1 then
       direction = pickDirection()
       doSnakeTick()
       return
     elseif next[3] == target[3] then direction = pickDirection() end
   elseif direction == "NZ" then
-    next = {s[1] + 1, s[2], s[3]}
+    next = {s[1], s[2], s[3] - 1}
     if holo.get(next[1], next[2], next[3]) == 1 then
       direction = pickDirection()
       doSnakeTick()
