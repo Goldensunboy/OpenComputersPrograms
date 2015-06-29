@@ -133,7 +133,9 @@ function doSnakeTick()
   if next[1] < 1 or next[1] > 48 or next[2] < 1 or next[2] > 32 or next[3] < 1 or next[3] > 48 then
     print("Warning: Invalid destination!")
     print("Direction:", direction)
-    print("Next:", next[0], next[1], next[2])
+    print("Target:", target[1], target[2], target[3])
+    print("Next:", next[1], next[2], next[3])
+    stopSnake()
   end
   if next[1] == target[1] and next[2] == target[2] and next[3] == target[3] then
     length = length + 1
