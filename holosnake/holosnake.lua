@@ -128,14 +128,12 @@ function doSnakeTick()
     elseif next[3] == target[3] then direction = pickDirection() end
   else
     print("Collision at: ["..s[1]..", "..s[2]..", "..s[3].."]")
-    initSnake()
+    return
   end
   if next[1] < 1 or next[1] > 48 or next[2] < 1 or next[2] > 32 or next[3] < 1 or next[3] > 48 then
-    print("Warning: Invalid destination!")
-    print("Direction:", direction)
-    print("Target:", target[1], target[2], target[3])
-    print("Next:", next[1], next[2], next[3])
-    stopSnake()
+    print("Collision at: ["..s[1]..", "..s[2]..", "..s[3].."]")
+    initSnake()
+    return
   end
   if next[1] == target[1] and next[2] == target[2] and next[3] == target[3] then
     length = length + 1
@@ -161,7 +159,7 @@ function stopSnake()
 end
 
 initSnake()
-tickID = event.timer(0.15, doSnakeTick, math.huge)
+tickID = event.timer(0.2, doSnakeTick, math.huge)
 event.listen("key_down", stopSnake)
 
 repeat os.sleep(1) until not running
