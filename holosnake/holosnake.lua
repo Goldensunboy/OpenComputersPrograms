@@ -77,7 +77,7 @@ function pickDirection()
   dist["PZ"] = t[3] - s[3]
   dist["NZ"] = s[3] - t[3]
   for key, _ in sortPairs(dist, function(t, a, b) return t[b] < t[a] end) do
-    if valid[key] then return key end
+    if valid[key] then print("Dir:", key) return key end
   end
   return "FALSE"
 end
@@ -130,11 +130,17 @@ function doSnakeTick()
     print("Collision at: ["..s[1]..", "..s[2]..", "..s[3].."]")
     initSnake()
   end
+  if next[1] < 1 or next[1] > 48 or next[2] < 1 or next[2] > 32 or next[3] < 1 or next[3] > 48 then
+    print("Warning: Invalid destination!")
+    print("Direction:", direction)
+    print("Next:", next[0], next[1], next[2])
+  end
   if next[1] == target[1] and next[2] == target[2] and next[3] == target[3] then
     length = length + 1
     snake[length] = next
     newTarget()
     direction = pickDirection()
+    initSnake()
   else
     s = snake[1]
     holo.set(s[1], s[2], s[3], 0)
