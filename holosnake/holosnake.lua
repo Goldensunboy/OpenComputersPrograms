@@ -63,12 +63,12 @@ function pickDirection()
   t = target
   s = snake[length]
   valid = {PX = true, NX = true, PY = true, NY = true, PZ = true, NZ = true}
-  if s[1] == 48 or holo.get(s[1] + 1, s[2], s[3]) == 1 then valid["PX"] = false
-  elseif s[1] == 1 or holo.get(s[1] - 1, s[2], s[3]) == 1 then valid["NX"] = false end
-  if s[2] == 32 or holo.get(s[1], s[2] + 1, s[3]) == 1 then valid["PY"] = false
-  elseif s[2] == 1 or holo.get(s[1], s[2] - 1, s[3]) == 1 then valid["NY"] = false end
-  if s[3] == 48 or holo.get(s[1], s[2], s[3] + 1) == 1 then valid["PZ"] = false
-  elseif s[3] == 1 or holo.get(s[1], s[2], s[3] - 1) == 1 then valid["NZ"] = false end
+  if s[1] == 48 or holo.get(s[1] + 1, s[2], s[3]) == 1 then valid["PX"] = false end
+  if s[1] == 1 or holo.get(s[1] - 1, s[2], s[3]) == 1 then valid["NX"] = false end
+  if s[2] == 32 or holo.get(s[1], s[2] + 1, s[3]) == 1 then valid["PY"] = false end
+  if s[2] == 1 or holo.get(s[1], s[2] - 1, s[3]) == 1 then valid["NY"] = false end
+  if s[3] == 48 or holo.get(s[1], s[2], s[3] + 1) == 1 then valid["PZ"] = false end
+  if s[3] == 1 or holo.get(s[1], s[2], s[3] - 1) == 1 then valid["NZ"] = false end
   dist = {}
   dist["PX"] = t[1] - s[1]
   dist["NX"] = s[1] - t[1]
