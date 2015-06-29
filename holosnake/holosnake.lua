@@ -140,7 +140,6 @@ function doSnakeTick()
     snake[length] = next
     newTarget()
     direction = pickDirection()
-    initSnake()
   else
     s = snake[1]
     holo.set(s[1], s[2], s[3], 0)
