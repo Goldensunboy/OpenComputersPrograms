@@ -128,6 +128,7 @@ function doSnakeTick()
     elseif next[3] == target[3] then direction = pickDirection() end
   else
     print("Collision at: ["..s[1]..", "..s[2]..", "..s[3].."]")
+    initSnake()
     return
   end
   if next[1] < 1 or next[1] > 48 or next[2] < 1 or next[2] > 32 or next[3] < 1 or next[3] > 48 then
