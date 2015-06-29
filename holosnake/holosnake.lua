@@ -69,6 +69,13 @@ function pickDirection()
   elseif s[2] == 1 or holo.get(s[1], s[2] - 1, s[3]) == 1 then valid["NY"] = false end
   if s[3] == 48 or holo.get(s[1], s[2], s[3] + 1) == 1 then valid["PZ"] = false
   elseif s[3] == 1 or holo.get(s[1], s[2], s[3] - 1) == 1 then valid["NZ"] = false end
+  dist = {}
+  dist["PX"] = t[1] - s[1]
+  dist["NX"] = s[1] - t[1]
+  dist["PY"] = t[2] - s[2]
+  dist["NY"] = s[2] - t[2]
+  dist["PZ"] = t[3] - s[3]
+  dist["NZ"] = s[3] - t[3]
   for key, _ in sortPairs(dist, function(t, a, b) return t[b] < t[a] end) do
     if valid[key] then return key end
   end
